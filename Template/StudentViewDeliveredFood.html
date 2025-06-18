@@ -1,0 +1,43 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>>
+    
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'StudentLink.html'%}
+    <div class="main">
+        <center>
+    <h1> Student View Shipped Food</h1>
+    {% include 'M.html'%}
+    <table class="table table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Order Id</th>
+            <th scope="col"> Student Id</th>
+            <th scope="col">Food Name</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Total</th>
+            <th scope="col">status</th>
+        </tr>
+    </thead>
+        {% for i in p %}
+        <tr>
+            <td>{{i.oid}}</td>
+            <td>{{i.sid}}</td>
+            <td>{{i.F_name}}</td>
+             <td>{{i.quantity}}</td>
+             <td>{{i.total}}</td>
+             <td>{{i.status}}</td>
+             {% endfor %}   
+
+        </tr>
+    </table>
+    
+</body>
+</html>

@@ -1,0 +1,63 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'StudentLink.html'%}
+    <div class="main">
+        <center>
+    <h1>View  Doctor</h1>
+    {% include 'M.html'%}
+    <form action="UserDoctor1" method="post">
+        {% csrf_token %}
+    <table>
+        <tr><td>Filter  by Role</td><td><select name="a" id="">
+        {% for i in p %}
+        <option value="{{i.role}}">{{i.role}}</option>
+            {% endfor %}
+    </select></td><td><input class="btn btn-warning" type="submit" value="Filter"></td></tr>
+        <tr></tr>
+    </table>
+    </form>
+    <table class="table table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Name</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Role</th>
+            <th scope="col">Hospital or Clinic Name</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Time</th>
+            <th scope="col">Mail Id</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Raise Complaint</th>
+            <th scope="col">Book Appointment</th>
+        </tr>
+    </thead>
+        {% for i in p %}
+           <!--  <h2>{{i.pname}}</h2> -->
+        <tr>
+            <td>{{i.name}}</td>
+             <td>{{i.qualification}}</td>
+             <td>{{i.role}}</td>
+             <td>{{i.hospital_or_clinic_name}}</td>
+             <td>{{i.time}}</td>
+             <td>{{i.mobile}}</td>
+             <td>{{i.mailid}}</td>
+             <td>{{i.experience}}</td>
+             <td><a class="btn btn-primary" href="{% url 'ComplaintDoctor' %}?A={{i.id}}">Raise Complaint</a></td>
+             <td><a class="btn btn-success" href="{% url 'AppointmentDoctor' %}?A={{i.id}}">Book Appointmet</a></td>
+             {% endfor %}   
+
+        </tr>
+    </table>
+    
+</body>
+</html>

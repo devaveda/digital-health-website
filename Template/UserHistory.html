@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    <style>
+        #a{
+            height: 300px;
+            width: 200px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'StudentLink.html'%}
+    <div class="main">
+        <center>
+    <h1> View My Bookings</h1>
+    {% include 'M.html'%}
+    <table class="table table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Booking Id</th>
+            <th scope="col"> Doctor Name</th>
+            <th scope="col">Doctor Mail</th>
+            <th scope="col">Booking Date</th>
+            <th scope="col">Status</th>
+     
+        </tr>
+    </thead>
+        {% for i in p %}
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.dname}}</td>
+            <td>{{i.dmail}}</td>
+             <td>{{i.date}}</td>
+             <td>{{i.status}}</td>
+            
+           
+            
+             
+             
+           <!--   <div style="background-color: aquamarine; width: 300px; border-radius: 30px;padding:10px 5px 5px 5px;">
+        <p><textarea name="bot" id="a" readonly>You:          {{i.message}}             Doctor:     {{ i.reply_msg }}  Doctor cno:  {{i.doc_cno}}</textarea></p>
+    </div> -->
+    {% endfor %}  
+        </tr>
+    </table>
+    
+</body>
+</html>

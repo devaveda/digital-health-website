@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    <style>
+        #a{
+            height: 300px;
+            width: 200px;
+            border-radius: 10px;
+        }
+       
+        span{
+            color:red;
+            border: 2px solid red;
+            padding:0px 15px;
+            border-top-right-radius: 8px;
+            border-bottom-left-radius: 8px;
+            }
+    </style>
+</head>
+<body>
+    {% load static %}
+  <script>
+    function demo(x)
+    {
+        document.getElementById("user").innerText=x.innerHTML;
+    }
+  </script>
+    {% include 'StudentLink.html'%}
+    <div class="main">
+        <center>
+    <h1>Book Appointment</h1>
+    {% include 'M.html'%}
+    <form action="Reply1" method="post">
+        {% csrf_token %}
+        <!-- <p><textarea  name="bot" id="a"readonly>{{ reply }}</textarea></p>
+        <p>Quick links to help you out</p>
+        <p><span onclick="demo(this)">Headache</span><span onclick="demo(this)">cough</span><span onclick="demo(this)">knee pain</span></p>
+            <p><span onclick="demo(this)">fever</span><span onclick="demo(this)">stomach pain</span></p>
+        <p> -->
+           <p><input type="text" name="id" value="{{data.0.id}}" readonly></p> 
+            <p><input type="text" name="name" value="{{data.0.name}}" required></p>
+            <p><input type="text" name="mobile" value="{{data.0.mailid}}" required></p>
+            <p><input type="date" name="user"></p>
+        
+        <p><input type="submit" value="Book" style="background-color: green;color: white;border-radius: 8px;"></p>
+    </div>
+</form>
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'AdminLink.html'%}
+    <div class="main">
+        <center>
+    <h1>View  Doctor</h1>
+    {% include 'M.html'%}
+    <table class="table table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Id</th>
+            <th scope="col"> Name</th>
+            <th scope="col">Qualification</th>
+            <th scope="col">Role</th>
+            <th scope="col">Contact Number</th>
+            <th scope="col">Mail Id</th>
+            <th scope="col">Experience</th>
+            <th scope="col">Delete</th>
+        </tr>
+    </thead>
+        {% for i in p %}
+           <!--  <h2>{{i.pname}}</h2> -->
+        <tr>
+            <td>{{i.id}}</td>
+            <td>{{i.name}}</td>
+             <td>{{i.qualification}}</td>
+             <td>{{i.role}}</td>
+             <td>{{i.mobile}}</td>
+             <td>{{i.mailid}}</td>
+             <td>{{i.experience}}</td>
+             <td><a class="btn btn-danger" href="{% url 'DelDoctor' %}?A={{i.id}}">Delete</a></td>
+             {% endfor %}   
+
+        </tr>
+    </table>
+    
+</body>
+</html>

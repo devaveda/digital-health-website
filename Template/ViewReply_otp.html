@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+</head>
+<body>
+    {% include 'StudentLink.html'%}
+    <div class="main">
+        <center> 
+    {% include 'M.html'%}
+    <h1>View Reply</h1>
+    <form action="ViewReply_otp1" method="post">
+        {% csrf_token %}
+        <table cellspacing="10" cellpadding="10">
+            <tr><th>Chat ID</th>
+                <td>
+                    <input type="text" value="{{cid}}" name="cid" readonly>
+                </td>
+            </tr>
+            <tr>
+                <th>Enter the OTP</th><td><input type="text" name='txt1' placeholder="Enter The OTP"></td>
+            </tr>
+           
+            <tr>
+                <th><input type="reset" value="Clear"></th>
+                <th><input type="submit" value="Submit"></th>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

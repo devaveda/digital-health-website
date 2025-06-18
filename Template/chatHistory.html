@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    <style>
+        .food-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+    
+        .food-item {
+            width: 30%;
+            margin-bottom: 20px; /* Add margin to the bottom */
+        }
+    
+        .food-image {
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
+        }
+    
+        .food-details p {
+            margin: 0;
+        }
+    
+        .edit-delete-links {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'StaffLink.html'%}
+    <div class="main">
+        <table class="table table table-striped">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col"> Chat Id</th>
+                <th scope="col"> User Id</th>
+                <th scope="col">User message</th>
+                <th scope="col">Your Reply</th>
+                <th scope="col">Doctor Id</th>
+                <!-- <th scope="col">Doctor Contact</th> -->
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+            {% for i in p %}
+            <tr>
+                <td>{{i.cid}}</td>
+                <td>{{i.u_id}}</td>
+                <td>{{i.message}}</td>
+                 <td>{{i.reply_msg}}</td>
+                 <td>{{i.doc_id}}</td>
+                 <!-- <td>{{i.doc_cno}}</td> -->
+                 <td>{{i.status}}</td>
+                 {% endfor %}  
+                </tr>
+            </table>
+    
+</body>
+</html>

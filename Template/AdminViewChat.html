@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    <style>
+        #a{
+            height: 300px;
+            width: 200px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'AdminLink.html'%}
+    <div class="main">
+        <center>
+    <h1>Problem and Solution</h1>
+    {% include 'M.html'%}
+    <table class="table table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Chat Id</th>
+            <th scope="col"> Doctor Id</th>
+            <th scope="col"> User Id</th>
+            <th scope="col">Your message</th>
+            <th scope="col">Doctor Id</th>
+            <th scope="col">Doctor Contact</th>
+            <th scope="col">status</th>
+                        <th scope="col">View Reply</th>
+
+        </tr>
+    </thead>
+        {% for i in p %}
+        <tr>
+            <td>{{i.cid}}</td>
+            <td>{{i.doc_id}}</td>
+            <td>{{i.u_id}}</td>
+            <td>{{i.message}}</td>
+             <td>{{i.doc_id}}</td>
+             <td>{{i.doc_cno}}</td>
+             <td>{{i.status}}</td>
+            <td><a href="{% url 'ViewReply_otp2' %}?A={{i.cid}}">View Reply</a></td>
+            
+             
+             
+           <!--   <div style="background-color: aquamarine; width: 300px; border-radius: 30px;padding:10px 5px 5px 5px;">
+        <p><textarea name="bot" id="a" readonly>You:          {{i.message}}             Doctor:     {{ i.reply_msg }}  Doctor cno:  {{i.doc_cno}}</textarea></p>
+    </div> -->
+    {% endfor %}  
+        </tr>
+    </table>
+    
+</body>
+</html>

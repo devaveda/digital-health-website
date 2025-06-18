@@ -1,0 +1,40 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthcare Chat Bot</title>
+    
+</head>
+<body>
+    {% load static %}
+  
+    {% include 'StaffLink.html'%}
+    <div class="main">
+        <center>
+    <h1>  View UnReplied Chat</h1>
+    {% include 'M.html'%}
+    <table class="table table table-striped">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col"> Chat Id</th>
+            <th scope="col"> User Id</th>
+            <th scope="col">User message</th>
+            <th scope="col">status</th>
+            <th scope="col">Reply</th>
+    </thead>
+        {% for i in p %}
+        <tr>
+            <td>{{i.cid}}</td>
+            <td>{{i.u_id}}</td>
+            <td>{{i.message}}</td>
+            <td>{{i.status}}</td>
+            <td><a href="{% url 'DocReplay' %}?Umail={{i.u_mail}}&H={{i.cid}}&I={{i.message}}">Reply</a></td>
+             {% endfor %}   
+
+        </tr>
+    </table>
+    
+</body>
+</html>
